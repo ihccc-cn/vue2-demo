@@ -1,0 +1,131 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+  margin: 0px;
+  padding: 0px;
+  font-size: 12px;
+  font-family: Arial, "微软雅黑";
+  color: #666;
+  overflow-x: hidden;
+}
+a {
+  color: #666;
+  text-decoration: none;
+  outline: none;
+}
+/* a:active {
+  star: expression(this.onFocus=this.blur());
+} */
+img {
+  border: 0px;
+  vertical-align: middle;
+}
+a:link {
+  text-decoration: none;
+  outline: none;
+}
+a:visited {
+  text-decoration: none;
+  outline: none;
+}
+a:hover {
+  text-decoration: none;
+  color: #2056c0;
+  outline: none;
+}
+ul,
+p,
+dl,
+dt,
+dd {
+  padding: 0px;
+  margin: 0px;
+}
+li {
+  list-style-position: outside;
+  list-style-type: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-size: 14px;
+  padding: 0px;
+  margin: 0px;
+}
+h1 {
+  font-size: 16px;
+}
+h5 {
+  font-size: 12px;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clear_f {
+  clear: both;
+  height: 0px;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  /* _display: inherit; */
+}
+
+.w260 {
+  width: 260px;
+}
+.w900 {
+  width: 900px;
+  overflow: hidden;
+  padding-top: 50px;
+}
+.rightBox {
+  background: #f9f9f9;
+  padding: 0 30px 50px;
+}
+
+.h10 {
+  height: 10px;
+  overflow: hidden;
+  clear: both;
+}
+.h30 {
+  height: 30px;
+  overflow: hidden;
+  clear: both;
+}
+.h100 {
+  height: 100px;
+  overflow: hidden;
+  clear: both;
+}
+input,
+textarea {
+  background: transparent;
+  padding: 0px;
+  font-size: 12px;
+  font-family: Arial, "微软雅黑";
+  color: #888;
+  outline: none;
+  border: 0px;
+}
+em {
+  font-style: normal;
+}
+.btn1 {
+  cursor: pointer;
+}
+.green {
+  color: #00954f;
+}
+.orange {
+  color: #f39700;
+}
+.wal {
+  width: 1240px;
+  margin: 0px auto;
+}
