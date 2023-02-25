@@ -19,7 +19,7 @@
               </li>
             </ul>
           </div>
-          <a href="javascript:;" class="navIco"> <img src="/CH/images/navIco.png" /></a>
+          <a href="javascript:;" class="navIco"> <img src="@/assets/images/navIco.png" /></a>
         </div>
       </div>
 
