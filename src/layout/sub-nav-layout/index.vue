@@ -1,7 +1,27 @@
 <template>
   <section>
     <div class="pageBanner">
-      <img :src="banner">
+      <img :src="pageConfig.banner">
+    </div>
+
+    <div class="pageTop" v-if="pageConfig.subRoutes">
+      <div class="wal">
+        <div class="sideName">
+          <div class="ico">
+            <img :src="pageConfig.icon">
+          </div>
+          <div class="name">{{ pageConfig.subRoutes.title }}</div>
+        </div>
+        <div class="pageNav">
+          <ul>
+            <li v-for="(route) in pageConfig.subRoutes.children" v-if="route.path" :key="route.path">
+              <router-link :to="route.path" :class="{ 'active': activePath === route.path }">{{ route.title
+              }}</router-link>
+            </li>
+          </ul>
+          <div class="clear_f"></div>
+        </div>
+      </div>
     </div>
 
     <router-view></router-view>
@@ -9,35 +29,80 @@
 </template>
 
 <script>
-import aboutBanner from '@/assets/images/20171108073913838.jpg';
-import newsBanner from '@/assets/images/20171108073913838.jpg';
-import productBanner from '@/assets/images/2017110807420955.jpg';
-import caseBanner from '@/assets/images/20171122025234401.jpg';
-import supportBanner from '@/assets/images/20171108074631920.jpg';
-import investorBanner from '@/assets/images/20171108074925605.jpg';
-import recruitmentBanner from '@/assets/images/20171121102912248.jpg';
-import contactBanner from '@/assets/images/20171108075128033.jpg';
-
-const bannerMap = {
-  "about": aboutBanner,
-  "news": newsBanner,
-  "product": productBanner,
-  "case": caseBanner,
-  "support": supportBanner,
-  "investor": investorBanner,
-  "recruitment": recruitmentBanner,
-  "contact": contactBanner,
-};
+import { bannerMap, iconMap } from "./banner";
 
 export default {
-  name: "SubNavLayout",
+  name: "sub-nav-layout",
   computed: {
-    banner() {
-      return bannerMap[this.$route.path.split('/')[1]]
+    activePath() {
+      return this.$route.matched[1]?.path?.split('/')[2]
+    },
+    pageConfig() {
+      const pkey = this.$route.fullPath.split('/')[1];
+      const subRoutes = this.$router.options.routes.find(item => item.path === '/' + pkey);
+
+      return {
+        icon: iconMap[pkey],
+        banner: bannerMap[pkey],
+        subRoutes
+      }
     }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+.pageTop {
+  height: 60px;
+  background: #f5f5f5;
+}
+
+.pageTop .wal {
+  height: 60px;
+  position: relative;
+}
+
+.sideName {
+  width: 189px;
+  height: 120px;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  z-index: 22;
+  background: url(@/assets/images/nimg189Bg.jpg) no-repeat;
+}
+
+.sideName .ico {
+  text-align: center;
+  padding: 26px 0 10px;
+}
+
+.sideName .name {
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.pageNav {
+  padding-left: 189px;
+}
+
+.pageNav li {
+  float: left;
+}
+
+.pageNav li a {
+  display: block;
+  padding: 0 22px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 14px;
+}
+
+.pageNav li a:hover,
+.pageNav li a.active {
+  background: #bb3944 url(@/assets/images/ico1.png) center bottom no-repeat;
+  color: #fff;
+}
+</style>

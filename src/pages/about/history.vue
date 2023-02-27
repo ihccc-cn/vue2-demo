@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: 40px; font-size: 24px; text-align: center;">
+  <div style="padding: 200px 0; font-size: 24px; text-align: center;">
     history page
   </div>
 </template>

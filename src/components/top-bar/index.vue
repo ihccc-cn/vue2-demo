@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: "TopLayout",
+  name: "top-bar",
   props: {
     title: String,
   },
